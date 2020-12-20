@@ -68,4 +68,121 @@ print('This string contains a double quote (") character')
 # string because, for that string, the single quote has special meaning - it
 # terminates the string:
 
+# print('This string contains a single quote (') character.') 
+# SyntaxError: invalid syntax
 
+# Specifying a backslash in front of the quote character in a string "escapes"
+# it and causes Python to suppress its usual special meaning. It is then
+# interpreted simply as a literal single quote character:
+
+print('This string contains a single quote (\') character.')
+# This string contains a single quote (') character.
+
+# \' -- Terminates string with single quote opening delimiter 
+# \" -- Terminates string with double quote opening delimiter 
+# \newline -- Terminates input line 
+# \\ -- Introduces escape sequence 
+
+# Ordinaryly, a newline character terminates line input. So pressing [Enter] in
+# the middle of a string will cause Python to think it's incomplete:
+
+# Print('a  SyntaxError: EOL while scanning string literal 
+
+# To break up a string over more than one line, include a backslash before
+# each newline, and the newlines will be ignored:
+
+print('a\
+        b\
+        c') # abc 
+
+# To include a backslash in a string, escape it with a backslash 
+ 
+print('foo\\bar') # foo\bar 
+
+#
+# APPLYING SPECIAL MEANING TO CHARACTERS 
+#
+
+# Suppose you need to create a string that contains a tab character in it. Some
+# text editors may allow you to insert a tab character into your code. But many
+# programmers consider that poor practice, for several reasons:
+#
+# 1. The computer can distinguish between a tab character and a sequence of
+# space characters, but you can't.
+#
+# 2. Some text editors are configured to automatically eliminate tab characters
+# by expanding them to the appropriate number of spaces. 
+#
+# 3. Some Python REPL environments will not insert tabs into code.
+
+# In Python, a tab character can be specified by the escape sequence "\t":
+
+print('foo\tbar') # foo      bar
+
+# \a                           ASCII Bell (BEL) character 
+# \b                           ASCII Backspace (BS) character 
+# \f                           ASCII Formfeed (FF) character 
+# \n                           ASCII Linefeed (LF) character 
+# \N{<name>}                   Character from Unicode database with given <name>
+# \r                           ASCII Carriage return (CR) character 
+# \t                           ASCII Horizontal Tab (TAB) character 
+# \uxxxx                       Unicode character with 16-bit hex value xxxx
+# \Uxxxxxxxx                   Unicode character with 32-bit hex value xxxxxxxx
+# \v                           ASCII Vertical Tab (VT) character 
+# \000                         Character with octal value ooo
+# \xhh                         Character with hex value hh
+
+# Examples 
+print("a\tb") # a    b 
+
+print("a\141\x61") # aaa
+
+print("a\nb") 
+# a
+# b 
+
+print('\u2192 \N{rightwards arrow}')
+# -> ->
+
+# This type of escape sequence is typically used to insert characters that are
+# not readily generated from the keyboard or are not easily readable or
+# printable. 
+
+#
+# RAW STRINGS 
+#
+
+# A raw string literal is preceded by r or R, which specifies that escape
+# sequensequences in the associated string are not translated.
+
+print('foo\nbar')
+# foo
+# bar
+
+print(r'foo\nbar') # foo\nbar 
+print(R'foo\\bar') # foo\\bar 
+
+#
+# TRIPLE-QUOTED STRINGS 
+#
+
+# There is yet another way of delimiting strings in Python. Triple-quoted
+# strings are delimited by matching groups of three single quotes or three
+# double quotes. Escape sequences still work in triple-quoted strings, but
+# single quotes, double quotes, and newlines can be included without escaping
+# them. This provide a convenient way to create a string with both single and
+# double quotes in it:
+
+print ('''This string has a single (') and a double (") quote.''')
+# This string has a single (') and a double (") quote. 
+
+# Because newlines can be included without escaping them, this also allows for
+# multiline strings:
+
+print("""This is a
+string that spans
+across several lines
+""")
+# This is a
+# string that spans
+# across several lines
