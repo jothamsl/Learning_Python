@@ -86,4 +86,3 @@ map(str.upper, ["These", "are", "some", "'strings'"])
 
 
 
-
