@@ -10,6 +10,8 @@
 # But how do you get to this formula-like way of building and using these constructs in python?
 
 # THE MATH BEHIND IT
+# ------------------
+
 # Remember in maths, the common ways to describe lists (or sets, or tuples, or vectors) are:
 # S = {x^2: x in {0 ... 9}}, V = (1, 2, 4, 8, ..., 2^12), M = {x | x in S and x even}.
 
@@ -19,7 +21,7 @@
 # power of two.
 
 # -> The sequnce V, on the other hand, contains the value 2 that is raised to a certain power x. The
-# power x starts from 0 and goes till 4096.
+# power x starts from 0 and goes till 12.
 
 # -> Lastly, the sequence M contains only the even elements from the sequence S.
 
