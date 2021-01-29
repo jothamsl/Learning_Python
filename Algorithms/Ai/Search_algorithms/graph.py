@@ -4,15 +4,16 @@ class Node:
         self.state = state  # Represents formal definition of state
         self.parent = parent  # Parent Node of the current Node (state)
         self.action = action  # The action taken that got to this Node
-        self.cost = 0  # Cost To get to this Node
+        self.cost = self._calc_cost()  # Cost getting to this Node
 
-    def calc_cost(self):
+    def _calc_cost(self):
         """Calculate cost of traversing graph to this Node"""
         current_parent = self.parent
+        current_cost = 0
         while current_parent != None:
             current_parent = current_parent.parent
-            self.cost += 1
-        return self.cost
+            current_cost += 1
+        return current_cost 
 
 
 class StackFrontier:
@@ -45,9 +46,10 @@ class QueFrontier(StackFrontier):
             self.frontier = self.frontier[0:]
             return node
 
-def main():
-    node1 = Node()
-
-
 if __name__ == "__main__":
-    main()
+    node1 = Node(0, None, None)
+    node2 = Node(1, node1, 0)
+    node3 = Node(0, node1, 1)
+    node4 = Node(1, node3, 2)
+    print(node4.parent)
+    print(node4.cost)
